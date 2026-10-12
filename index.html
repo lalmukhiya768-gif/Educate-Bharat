@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Educate Bharat | Learn. Grow. Succeed.</title>
+  <meta name="description" content="Explore educational articles, BPSC and UPSC preparation resources, current affairs, Bihar special topics, and general knowledge on Educate Bharat.">
+  <meta name="theme-color" content="#123c69">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Educate Bharat home">
+      <span class="brand-mark">EB</span>
+      <span><strong>Educate Bharat</strong><small data-en="Learn. Grow. Succeed." data-hi="सीखें। आगे बढ़ें। सफल बनें।">Learn. Grow. Succeed.</small></span>
+    </a>
+    <div class="header-actions">
+      <button id="languageToggle" class="button button-light" type="button" aria-label="Change language">हिंदी</button>
+      <a class="button button-primary" href="admin.html" data-en="Admin Login" data-hi="एडमिन लॉगिन">Admin Login</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <p class="eyebrow" data-en="KNOWLEDGE FOR EVERYONE" data-hi="सबके लिए ज्ञान">KNOWLEDGE FOR EVERYONE</p>
+        <h1 data-en="Your learning journey starts here." data-hi="आपकी सीखने की यात्रा यहीं से शुरू होती है।">Your learning journey starts here.</h1>
+        <p class="hero-copy" data-en="Explore clear, useful learning resources for competitive exams, current affairs and general knowledge." data-hi="प्रतियोगी परीक्षाओं, करेंट अफेयर्स और सामान्य ज्ञान के लिए उपयोगी अध्ययन सामग्री पढ़ें।">Explore clear, useful learning resources for competitive exams, current affairs and general knowledge.</p>
+        <label class="search-box">
+          <span aria-hidden="true">⌕</span>
+          <input id="searchInput" type="search" placeholder="Search articles..." data-placeholder-en="Search articles..." data-placeholder-hi="लेख खोजें..." aria-label="Search articles">
+        </label>
+      </div>
+      <div class="hero-badge" aria-hidden="true"><span>📚</span><b>Learn<br>Every Day</b><i>ज्ञान • प्रगति • सफलता</i></div>
+    </section>
+
+    <section class="content-section">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow" data-en="EXPLORE & LEARN" data-hi="पढ़ें और सीखें">EXPLORE & LEARN</p>
+          <h2 data-en="Explore categories" data-hi="विषय चुनें">Explore categories</h2>
+        </div>
+      </div>
+      <div id="categoryList" class="category-grid">
+        <button class="category-card active" data-category="All" type="button"><span>✨</span><strong data-en="All articles" data-hi="सभी लेख">All articles</strong></button>
+        <button class="category-card" data-category="BPSC & UPSC" type="button"><span>🎯</span><strong>BPSC &amp; UPSC</strong></button>
+        <button class="category-card" data-category="Current Affairs" type="button"><span>📰</span><strong data-en="Current Affairs" data-hi="करेंट अफेयर्स">Current Affairs</strong></button>
+        <button class="category-card" data-category="Bihar Special" type="button"><span>🏛️</span><strong data-en="Bihar Special" data-hi="बिहार विशेष">Bihar Special</strong></button>
+        <button class="category-card" data-category="General Knowledge" type="button"><span>🌏</span><strong data-en="General Knowledge" data-hi="सामान्य ज्ञान">General Knowledge</strong></button>
+        <button class="category-card" data-category="Education" type="button"><span>🎓</span><strong data-en="Education" data-hi="शिक्षा">Education</strong></button>
+      </div>
+    </section>
+
+    <section class="content-section articles-section">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow" data-en="FRESH IDEAS & USEFUL NOTES" data-hi="उपयोगी जानकारी और अध्ययन सामग्री">FRESH IDEAS &amp; USEFUL NOTES</p>
+          <h2 data-en="Latest articles" data-hi="नवीनतम लेख">Latest articles</h2>
+        </div>
+        <span id="articleCount" class="muted"></span>
+      </div>
+      <div id="articleGrid" class="article-grid">
+        <div class="empty-state"><span class="loader"></span><p data-en="Loading articles..." data-hi="लेख लोड हो रहे हैं...">Loading articles...</p></div>
+      </div>
+    </section>
+
+    <section class="join-banner">
+      <div><p class="eyebrow" data-en="KEEP LEARNING" data-hi="सीखते रहें">KEEP LEARNING</p><h2 data-en="Small steps today. Bigger possibilities tomorrow." data-hi="आज के छोटे कदम, कल की बड़ी संभावनाएँ।">Small steps today. Bigger possibilities tomorrow.</h2></div>
+      <a href="admin.html" class="button button-white" data-en="Manage website" data-hi="वेबसाइट मैनेज करें">Manage website</a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a class="brand footer-brand" href="index.html"><span class="brand-mark">EB</span><span><strong>Educate Bharat</strong><small data-en="Knowledge for all." data-hi="सबके लिए ज्ञान।">Knowledge for all.</small></span></a>
+    <div class="footer-links"><a href="about.html" data-en="About Us" data-hi="हमारे बारे में">About Us</a><a href="contact.html" data-en="Contact" data-hi="संपर्क">Contact</a><a href="privacy.html" data-en="Privacy" data-hi="गोपनीयता">Privacy</a><a href="disclaimer.html" data-en="Disclaimer" data-hi="अस्वीकरण">Disclaimer</a></div>
+    <p>© <span id="year"></span> Educate Bharat</p>
+  </footer>
+
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+  <script src="firebase-config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

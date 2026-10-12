@@ -1,0 +1,25 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() {
+      return request.auth != null;
+    }
+    function isAdmin() {
+      return signedIn()
+        && exists(/databases/$(database)/documents/admins/$(request.auth.uid))
+        && get(/databases/$(database)/documents/admins/$(request.auth.uid)).data.role == "admin";
+    }
+
+    match /admins/{uid} {
+      // Admin can read only their own role document. No client can create/change admin roles.
+      allow read: if signedIn() && request.auth.uid == uid;
+      allow write: if false;
+    }
+
+    match /posts/{postId} {
+      // Public can read only published articles. Admin can read drafts too.
+      allow read: if (resource.data.status == "published") || isAdmin();
+      allow create, update, delete: if isAdmin();
+    }
+  }
+}

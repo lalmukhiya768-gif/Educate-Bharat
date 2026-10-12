@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin Dashboard | Educate Bharat</title>
+  <meta name="robots" content="noindex,nofollow">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html"><span class="brand-mark">EB</span><span><strong>Educate Bharat</strong><small>Admin workspace</small></span></a>
+    <a class="button button-light" href="index.html">← View website</a>
+  </header>
+  <main class="page-wrap">
+    <section id="loginPanel" class="panel">
+      <p class="eyebrow">SECURE ACCESS</p>
+      <h1>Admin login</h1>
+      <p class="muted">Sign in with the admin account you created in Firebase Authentication.</p>
+      <form id="loginForm">
+        <div class="field"><label for="email">Admin email</label><input id="email" type="email" autocomplete="username" required></div>
+        <div class="field"><label for="password">Password</label><input id="password" type="password" autocomplete="current-password" required></div>
+        <button class="button button-primary" type="submit">Sign in</button>
+      </form>
+      <div id="loginStatus" class="status hidden" role="status"></div>
+    </section>
+
+    <section id="dashboard" class="hidden">
+      <div class="panel">
+        <p class="eyebrow">CONTENT MANAGEMENT</p>
+        <h1>Educate Bharat Dashboard</h1>
+        <p class="muted">Create bilingual articles, save drafts, and publish to the public website.</p>
+        <div class="form-actions"><button id="newPostBtn" class="button button-primary" type="button">＋ New article</button><button id="logoutBtn" class="button button-light" type="button">Sign out</button></div>
+        <div id="dashboardStatus" class="status hidden" role="status"></div>
+      </div>
+      <section id="editorPanel" class="panel hidden">
+        <h2 id="editorHeading">Create article</h2>
+        <form id="postForm">
+          <input id="postId" type="hidden">
+          <div class="form-grid">
+            <div class="field"><label for="titleEn">Title (English)</label><input id="titleEn" maxlength="160" required></div>
+            <div class="field"><label for="titleHi">शीर्षक (हिंदी)</label><input id="titleHi" maxlength="160"></div>
+          </div>
+          <div class="form-grid">
+            <div class="field"><label for="category">Category</label><select id="category"><option>BPSC &amp; UPSC</option><option>Current Affairs</option><option>Bihar Special</option><option>General Knowledge</option><option>Education</option></select></div>
+            <div class="field"><label for="imageUrl">Image URL (optional)</label><input id="imageUrl" type="url" placeholder="https://..."><small>Use an image URL you have permission to use. Upload is not included in this first version.</small></div>
+          </div>
+          <div class="form-grid">
+            <div class="field"><label for="excerptEn">Short description (English)</label><textarea id="excerptEn" maxlength="350" required></textarea></div>
+            <div class="field"><label for="excerptHi">संक्षिप्त विवरण (हिंदी)</label><textarea id="excerptHi" maxlength="350"></textarea></div>
+          </div>
+          <div class="form-grid">
+            <div class="field"><label for="bodyEn">Article body (English)</label><textarea id="bodyEn" required></textarea></div>
+            <div class="field"><label for="bodyHi">लेख (हिंदी)</label><textarea id="bodyHi"></textarea></div>
+          </div>
+          <div class="form-grid">
+            <div class="field"><label for="seoTitle">SEO title (optional)</label><input id="seoTitle" maxlength="70"></div>
+            <div class="field"><label for="seoDescription">SEO description (optional)</label><input id="seoDescription" maxlength="160"></div>
+          </div>
+          <div class="form-actions"><button id="publishBtn" class="button button-primary" type="submit">Publish article</button><button id="draftBtn" class="button button-light" type="button">Save draft</button><button id="cancelEditBtn" class="button button-light" type="button">Cancel</button></div>
+        </form>
+        <div id="editorStatus" class="status hidden" role="status"></div>
+      </section>
+      <section class="panel">
+        <h2>Your articles</h2>
+        <p class="muted">Drafts are visible only to authorized admins. Published articles appear on the public homepage.</p>
+        <div id="adminPostList"><p class="muted">Loading articles…</p></div>
+      </section>
+    </section>
+  </main>
+
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+  <script src="firebase-config.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>
