@@ -8,5 +8,5 @@ window.FIREBASE_CONFIG = {
   projectId: "educate-bharat-52088",
   storageBucket: "educate-bharat-52088.firebasestorage.app",
   messagingSenderId: "171012910960",
-  appId: "PASTE_APP_ID_HERE"
+  appId: "1:171012910960:web:6f0bd25cc3efeeb981a9b5"
 };
