@@ -7,6 +7,6 @@ window.FIREBASE_CONFIG = {
   authDomain: "educate-bharat-52088.firebaseapp.com",
   projectId: "educate-bharat-52088",
   storageBucket: "educate-bharat-52088.firebasestorage.app",
-  messagingSenderId: "PASTE_MESSAGING_SENDER_ID_HERE",
+  messagingSenderId: "171012910960",
   appId: "PASTE_APP_ID_HERE"
 };
